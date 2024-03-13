@@ -2,8 +2,11 @@ databases:
   - name: default
     plan: free
     databaseName: chatpdf
+    host: dpg-cnb09j6d3nmc73doge40-a.oregon-postgres.render.com
     user: dbmaster
-    fromURL: "postgres://dbmaster:HqvnyoS0mbxiSQWdMsrZrjAJBcEuC92D@dpg-cnb09j6d3nmc73doge40-a.oregon-postgres.render.com/chatpdf"
+    password: HqvnyoS0mbxiSQWdMsrZrjAJBcEuC92D
+    port: 5432
+    ssl: true
 
 services:
   - type: web
