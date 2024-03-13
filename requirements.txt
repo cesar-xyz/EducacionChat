@@ -1,5 +1,8 @@
 django
 djangorestframework
 dj_database_url
+drf_yasg
+psycopg2
+djangorestframework-simplejwt
 
 

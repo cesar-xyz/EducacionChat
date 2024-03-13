@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'EducacionChat.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://dbmaster:HqvnyoS0mbxiSQWdMsrZrjAJBcEuC92D@dpg-cnb09j6d3nmc73doge40-a.oregon-postgres.render.com/chatpdf')
+        default='postgres://dbmaster:m6RZkovrLjt7zEw9jhRd7hxAcS18zMs9@dpg-cnok37gcmk4c73e3k1cg-a.oregon-postgres.render.com/chatpdf_tzve')
 }
 
 CSRF_TRUSTED_ORIGINS = [
