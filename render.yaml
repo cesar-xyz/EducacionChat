@@ -1,0 +1,24 @@
+databases:
+  - name: default
+    plan: free
+    databaseName: chatpdf
+    user: dbmaster
+    fromURL:
+      value: "postgres://dbmaster:HqvnyoS0mbxiSQWdMsrZrjAJBcEuC92D@dpg-cnb09j6d3nmc73doge40-a.oregon-postgres.render.com/chatpdf"
+
+services:
+  - type: web
+    plan: free
+    name: EducacionChat
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn EducacionChat.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: "postgres://dbmaster:HqvnyoS0mbxiSQWdMsrZrjAJBcEuC92D@dpg-cnb09j6d3nmc73doge40-a.oregon-postgres.render.com/chatpdf"
+        fromDatabase:
+          name: chatpdf
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
