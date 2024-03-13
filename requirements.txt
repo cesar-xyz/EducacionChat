@@ -1,5 +1,5 @@
-django~=5.0.3
-djangorestframework~=3.14.0
+django
+djangorestframework
 dj_database_url
 gunicorn
 psycopg2
