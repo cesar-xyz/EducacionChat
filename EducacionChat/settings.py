@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 import dj_database_url
-import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0s$g94$zshn@z&+se39_-jr*6=m22!%g$l5ginu@ogjer=%4o1'
+SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = []
 
@@ -86,7 +87,8 @@ WSGI_APPLICATION = 'EducacionChat.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://dbmaster:HqvnyoS0mbxiSQWdMsrZrjAJBcEuC92D@dpg-cnb09j6d3nmc73doge40-a.oregon-postgres.render.com/chatpdf')
+        default='postgresql://postgres:postgres@localhost:5432/EducacionChat'
+    )
 }
 
 CSRF_TRUSTED_ORIGINS = [
